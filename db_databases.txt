@@ -1,0 +1,16 @@
+Starting database inspection...
+Databases found: 13
+ - airlinedb
+ - college
+ - demo
+ - flightdesk
+ - information_schema
+ - institute
+ - mysql
+ - performance_schema
+ - shop
+ - sys
+ - test_db
+ - w26
+ - xyz
+Done.

@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Add New Client</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/admin/clients/add" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Client Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="designation" class="form-label">Designation / Role</label>
+                            <input type="text" class="form-control" id="designation" name="designation"
+                                placeholder="e.g. CEO of TechCorp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description / Testimonial</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image_path" class="form-label">Image URL / Path</label>
+                            <input type="text" class="form-control" id="image_path" name="image_path"
+                                placeholder="https://example.com/client.jpg">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">Add Client</button>
+                            <a href="/admin/clients" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

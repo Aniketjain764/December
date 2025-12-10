@@ -1,0 +1,217 @@
+<%- include('partials/header') %>
+
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to the Future</h1>
+            <p>A robust full-stack foundation built with Node.js, Express, MySQL, and EJS. Scalable, secure, and ready
+                for deployment.</p>
+            <a href="#projects" class="btn">Explore Work</a>
+        </div>
+    </section>
+
+    <!-- 2. Why Choose Us -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="feature-icon"><i class="bi bi-speedometer2"></i></div>
+                    <h3>High Performance</h3>
+                    <p class="text-gray">Optimized for speed with efficient database queries and lightweight frontend
+                        assets.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                    <h3>Scalability</h3>
+                    <p class="text-gray">Modular architecture designed to grow with your application needs seamlessly.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                    <h3>Secure By Design</h3>
+                    <p class="text-gray">Implemented using industry best practices for security and data protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Our Projects -->
+    <section id="projects" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+            <% if (locals.projects && projects.length> 0) { %>
+                <div class="horizontal-scroll">
+                    <% projects.forEach(project=> { %>
+                        <div class="card project-card">
+                            <div class="project-img-wrapper">
+                                <% if (project.image_url) { %>
+                                    <img src="<%= project.image_url %>" alt="<%= project.title %>" class="project-img">
+                                    <% } else { %>
+                                        <div
+                                            style="display:flex;align-items:center;justify-content:center;height:100%;color:#94a3b8;">
+                                            <i class="bi bi-image" style="font-size:3rem;"></i>
+                                        </div>
+                                        <% } %>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">
+                                    <%= project.title %>
+                                </h3>
+                                <p class="project-desc">
+                                    <% if (project.description) { %>
+                                        <%= project.description.length> 100 ? project.description.substring(0, 100) +
+                                            '...' : project.description %>
+                                            <% } else { %>
+                                                No description available.
+                                                <% } %>
+                                </p>
+                                <% if (project.link) { %>
+                                    <a href="<%= project.link %>" target="_blank" class="btn btn-sm">View Details</a>
+                                    <% } else { %>
+                                        <button class="btn btn-sm"
+                                            style="background:#cbd5e1; cursor:not-allowed;">Coming Soon</button>
+                                        <% } %>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+                <% } else { %>
+                    <div style="text-align:center; color:#64748b; padding:40px;">
+                        <p>No projects found. Check back later!</p>
+                    </div>
+                    <% } %>
+        </div>
+    </section>
+
+    <!-- 4. Happy Clients -->
+    <section id="clients">
+        <div class="container">
+            <h2 class="section-title">Happy Clients</h2>
+            <% if (locals.clients && clients.length> 0) { %>
+                <div class="horizontal-scroll">
+                    <% clients.forEach(client=> { %>
+                        <div class="card client-card">
+                            <% if (client.image_path) { %>
+                                <img src="<%= client.image_path %>" alt="<%= client.name %>" class="client-img">
+                                <% } else { %>
+                                    <div class="client-img"
+                                        style="background:#e2e8f0; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#64748b;">
+                                        <%= client.name.charAt(0) %>
+                                    </div>
+                                    <% } %>
+                                        <h4>
+                                            <%= client.name %>
+                                        </h4>
+                                        <span class="client-role">
+                                            <%= client.designation %>
+                                        </span>
+                                        <p class="client-text">
+                                            "<% if (client.description) { %>
+                                                <%= client.description.length> 80 ? client.description.substring(0, 80)
+                                                    + '...' : client.description %>
+                                                    <% } %>"
+                                        </p>
+                        </div>
+                        <% }); %>
+                </div>
+                <% } else { %>
+                    <div style="text-align:center; color:#64748b;">
+                        <p>No testimonials yet.</p>
+                    </div>
+                    <% } %>
+        </div>
+    </section>
+
+    <!-- 5. About Developer -->
+    <section id="about" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="card about-card">
+                <h3>About Developer</h3>
+                <p style="font-size:1.1rem; color:#475569;">
+                    Anikett Jain — Final year B.Tech (Acropolis Institute).<br>
+                    Passionate tech enthusiast, active in co-curricular initiatives<br>
+                    and builder of real-world projects like FlightDesk.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact Form -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div>
+                    <h3>Let's Start a Conversation</h3>
+                    <p style="color:#64748b; margin-bottom:2rem;">
+                        Have a project in mind or just want to say hi? Fill out the form below and I'll get back to you
+                        as soon as possible.
+                    </p>
+                    <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
+                        <i class="bi bi-geo-alt" style="color:var(--primary); font-size:1.5rem;"></i>
+                        <span>Indore, India</span>
+                    </div>
+                    <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
+                        <i class="bi bi-envelope" style="color:var(--primary); font-size:1.5rem;"></i>
+                        <span>contact@example.com</span>
+                    </div>
+                    <div style="display:flex; gap:15px; align-items:center;">
+                        <i class="bi bi-phone" style="color:var(--primary); font-size:1.5rem;"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                </div>
+
+                <form action="/contact" method="POST">
+                    <% if (locals.message) { %>
+                        <div
+                            style="background:#dcfce7; color:#166534; padding:10px; border-radius:8px; margin-bottom:20px; text-align:center;">
+                            <%= message %>
+                        </div>
+                        <% } %>
+
+                            <div class="form-group">
+                                <label class="form-label" for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                            </div>
+
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="mobile">Mobile</label>
+                                    <input type="tel" id="mobile" name="mobile" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="city">City</label>
+                                <input type="text" id="city" name="city" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea id="message" name="message" class="form-textarea"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn" style="width:100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Newsletter Box -->
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <h3>Subscribe to Our Newsletter</h3>
+            <form action="/newsletter" method="POST" class="newsletter-form">
+                <input type="email" name="email" placeholder="Enter your email address" class="newsletter-input"
+                    required>
+                <button type="submit" class="btn" style="border-radius:50px;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>

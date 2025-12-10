@@ -1,0 +1,11 @@
+Starting table search...
+Checking database: airlinedb
+Checking database: college
+Checking database: demo
+Checking database: flightdesk
+Checking database: institute
+Checking database: shop
+Checking database: test_db
+Checking database: w26
+Checking database: xyz
+Done.
