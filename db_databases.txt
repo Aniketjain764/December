@@ -6,7 +6,6 @@ Databases found: 13
  - flightdesk
  - information_schema
  - institute
- - mysql
  - performance_schema
  - shop
  - sys
